@@ -818,7 +818,7 @@ class Airflow(BaseView):
                 log += "*** Fetching here: {url}\n".format(**locals())
                 try:
                     import requests
-                    log += '\n' + requests.get(url).text
+                    log += '\n' + unicode(requests.get(url).text,'utf-8')
                     log_loaded = True
                 except:
                     log += "*** Failed to fetch log file from worker.\n".format(
